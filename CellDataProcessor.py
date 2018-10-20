@@ -51,26 +51,5 @@ for cell, file in zip(data, filelist):
 #Output data as csv
 np.savetxt(output, np.array(cellvalues), delimiter = ',', header = "File,Voc,Jsc,FF,Efficiency")
 
-# #Read in to split data into cells
-# with open(output, "r") as f:
-    # contents = f.readlines()    
-
-# #Put in headers
-# linenumber = 0
-# for n, l in enumerate(filelist):
-    # if n % 6 == 0:
-        # contents.insert(linenumber, '\n' + l.split('/')[-1] + "\nVoc,Jsc,FF,Efficiency\n")
-        # linenumber += 7
-
-# #Quick and dirty way to get rid of first newline character
-# contents[0] = contents[0][1:]
-    
-# #No longer used
-# #contents = ''.join(l + '\n' * (n % 6 == 5) for n, l in enumerate(contents)) 
-
-# #Write to file again
-# with open(output, "w") as f:
-    # f.write(''.join(contents))
-
 #Open .csv with default program
 os.system('\"' + output + '\"')
