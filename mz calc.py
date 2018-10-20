@@ -64,10 +64,7 @@ def NextElement(elements, mz, formula):
         for element, isotopeList in isotopes.items():
             if element in formula:
                 for isotope in isotopeList:
-                    if isotope > 0:
-                        AddFrag(mz + isotope, formula + 'm/z+' + str(isotope))
-                    else:
-                        AddFrag(mz + isotope, formula + 'm/z' + str(isotope))
+                    AddFrag(mz + isotope, formula + 'm/z' + "%+d" % (isotope))
         
 #Start the process with the full element dictionary and empty mz and formula
 NextElement(elements.copy(), 0, '')            
